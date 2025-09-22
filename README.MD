@@ -17,5 +17,5 @@ A minimal utility node that exposes two *in-node* controls and emits their value
 - **Mask Prompt (STRING)** — a multiline text field where you can type prompt text for masking/selection nodes that accept a `STRING`.
 
 <p align="center">
-  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="720">
+  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="540">
 </p>
