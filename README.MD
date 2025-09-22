@@ -50,3 +50,8 @@ Fast, reference-driven color normalization for ComfyUI. Applies auto white balan
 ### Notes
 - If result feels strong, lower **strength** or switch to **lab_l_only**.  
 - If highlights skew WB, lower **percentile** a bit (e.g., 92–95).
+
+<p align="center">
+  <img src="assets/auto_color_match.png" alt="Auto White-Balance + Color Match node" width="540">
+</p>
+
