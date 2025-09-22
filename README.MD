@@ -1,10 +1,18 @@
-# LinxUtil
+Utility nodes for [ComfyUI]   
 
-A small collection of utility nodes for ComfyUI.
+## 🛠️ Installation
 
-## Install
-Clone into `ComfyUI/custom_nodes/`:
-
-```bash
 cd /path/to/ComfyUI/custom_nodes
-git clone https://github.com/<you>/LinxUtil.git
+git clone https://github.com/heyburns/LinxUtil.git
+Restart ComfyUI and refresh the browser
+
+---
+
+## ✨ Current Nodes
+
+### 1) Multipurpose Configuration
+A minimal utility node that exposes two *in-node* controls and emits their values as sockets:
+
+- **Megapixels (FLOAT)** — set a target megapixel resolution value directly in the node (no external input required). Ideal for driving resizers that accept a `FLOAT` input.  
+- **Mask Prompt (STRING)** — a multiline text field where you can type prompt text for masking/selection nodes that accept a `STRING`.
+
