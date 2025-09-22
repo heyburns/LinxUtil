@@ -2,9 +2,9 @@ Utility nodes for [ComfyUI]
 
 ## 🛠️ Installation
 
-cd /path/to/ComfyUI/custom_nodes
-git clone https://github.com/heyburns/LinxUtil.git
-Restart ComfyUI and refresh the browser
+cd /path/to/ComfyUI/custom_nodes  
+git clone https://github.com/heyburns/LinxUtil.git  
+Restart ComfyUI and refresh the browser  
 
 ---
 
