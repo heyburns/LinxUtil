@@ -20,7 +20,7 @@ A minimal utility node that exposes two *in-node* controls and emits their value
   <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="540">
 </p>
 
-### 2) 🎨 Auto White-Balance + Color Match
+### 2) Auto White-Balance + Color Match
 
 Fast, reference-driven color normalization for ComfyUI. Applies auto white balance and (optionally) matches a source image’s look to a reference. Minimal controls, predictable results.
 
@@ -55,3 +55,21 @@ Fast, reference-driven color normalization for ComfyUI. Applies auto white balan
   <img src="assets/auto_color_match.png" alt="Auto White-Balance + Color Match node" width="540">
 </p>
 
+### 3) Strip Filename Extension
+
+Removes the trailing file extension from a filename string (e.g., `photo.png` → `photo`). Uses Python’s `os.path.splitext` for robust behavior across platforms.
+
+**Category:** `Custom/Utility`  
+**Display name:** `Strip Filename Extension`
+
+**Input**
+- `filename` (STRING) — e.g., `image.v1.final.jpg`
+
+**Output**
+- `root_filename` (STRING) — e.g., `image.v1.final`
+
+> Tip: If you want to strip compound extensions like `.tar.gz`, you can extend the node with a small loop (commented in the source) to peel multiple suffixes.
+
+<p align="center">
+  <img src="assets/strip_extension.png" alt="Strip Filename Extension node" width="540">
+</p>
