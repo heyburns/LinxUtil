@@ -15,7 +15,7 @@ Restart ComfyUI and refresh the browser
 ## Levels Match (Reference)
 
 <p align="center">
-  <img src="assets/levels_match_node.png" alt="Levels Match node" width="480">
+  <img src="assets/levels_match_node.png" alt="Levels Match node" width="380">
 </p>
 
 Match black/white points (and optional midtone) of an image to a **reference** using percentile clipping. Choose fast **linear** mapping or smoother **CDF** mapping.
@@ -47,7 +47,7 @@ Match black/white points (and optional midtone) of an image to a **reference** u
 ## Auto White-Balance + Color Match
 
 <p align="center">
-  <img src="assets/auto_color_match.png" alt="Auto White-Balance + Color Match node" width="480">
+  <img src="assets/auto_color_match.png" alt="Auto White-Balance + Color Match node" width="380">
 </p>
 
 Fast, reference-driven color normalization. Apply auto white balance, then (optionally) match overall look to a reference via Reinhard Lab transfer.
@@ -79,7 +79,7 @@ Fast, reference-driven color normalization. Apply auto white balance, then (opti
 ## Auto-Crop Borders (fuzzy)
 
 <p align="center">
-  <img src="assets/auto_crop_borders.png" alt="Auto-Crop Borders node" width="480">
+  <img src="assets/auto_crop_borders.png" alt="Auto-Crop Borders node" width="380">
 </p>
 
 Smartly trims uniform borders using an edge-seeded, fuzzy-threshold region growth. Returns the cropped image, the crop box, and an optional border mask.
@@ -144,7 +144,7 @@ Precisely removes margins from an **image** or a **mask**, with optional snappin
 ## Stitch by Mask (Feathered)
 
 <p align="center">
-  <img src="assets/stitch_by_mask_feathered.png" alt="Stitch by Mask (Feathered) node" width="480">
+  <img src="assets/stitch_by_mask_feathered.png" alt="Stitch by Mask (Feathered) node" width="380">
 </p>
 
 Composite `image_b` over `image_a` using a real `mask`, with optional invert, opacity, and feathering. Can process at a reduced size for speed, then apply at full res.
@@ -175,7 +175,7 @@ Composite `image_b` over `image_a` using a real `mask`, with optional invert, op
 ## Filename: Append Suffix
 
 <p align="center">
-  <img src="assets/filename_append_suffix.png" alt="Filename Append Suffix node" width="480">
+  <img src="assets/filename_append_suffix.png" alt="Filename Append Suffix node" width="380">
 </p>
 
 Strip extension(s) and append a suffix (e.g., `001.jpg` + `-supir` → `001-supir`). Preserve directory paths if desired; handles compound extensions.
@@ -203,7 +203,7 @@ Strip extension(s) and append a suffix (e.g., `001.jpg` + `-supir` → `001-supi
 ## Strip Filename Extension
 
 <p align="center">
-  <img src="assets/strip_extension.png" alt="Strip Filename Extension node" width="480">
+  <img src="assets/strip_extension.png" alt="Strip Filename Extension node" width="380">
 </p>
 
 Removes the final extension from a filename string (`photo.png` → `photo`). Simple, robust, cross-platform.
@@ -223,7 +223,7 @@ Removes the final extension from a filename string (`photo.png` → `photo`). Si
 ## Multipurpose Configuration
 
 <p align="center">
-  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="480">
+  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="380">
 </p>
 
 Small “source/utility” node that owns a couple of configuration values you can reuse elsewhere (handy in compact graphs).
@@ -240,38 +240,6 @@ Small “source/utility” node that owns a couple of configuration values you c
 **Outputs**  
 - `megapixels` (FLOAT)  
 - `mask_prompt` (STRING)
-
----
-
-## 🔄 Updating
-
-    cd LinxUtil
-    git pull
-    # Restart ComfyUI
-
----
-
-## 🧭 Repo Layout (for contributors)
-
-    LinxUtil/
-    ├─ __init__.py                  # Exports NODE_CLASS_MAPPINGS for ComfyUI
-    ├─ linxutil/
-    │  ├─ __init__.py
-    │  ├─ auto_color_match.py
-    │  ├─ auto_crop_borders.py
-    │  ├─ levels_match_node.py
-    │  ├─ crop_by_margins.py
-    │  ├─ filename_append_suffix.py
-    │  ├─ remove_extension.py
-    │  └─ multipurpose_configuration.py
-    └─ assets/
-       ├─ auto_color_match.png
-       ├─ auto_crop_borders.png
-       ├─ levels_match.png
-       ├─ crop_by_margins.png
-       ├─ filename_append_suffix.png
-       ├─ strip_extension.png
-       └─ multipurpose_configuration.png
 
 ---
 
