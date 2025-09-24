@@ -79,7 +79,7 @@ Fast, reference-driven color normalization. Apply auto white balance, then (opti
 ## Auto-Crop Borders (fuzzy)
 
 <p align="center">
-  <img src="assets/auto_crop_borders.png" alt="Auto-Crop Borders node" width="720">
+  <img src="assets/auto_crop_borders.png" alt="Auto-Crop Borders node" width="480">
 </p>
 
 Smartly trims uniform borders using an edge-seeded, fuzzy-threshold region growth. Returns the cropped image, the crop box, and an optional border mask.
@@ -114,7 +114,7 @@ Smartly trims uniform borders using an edge-seeded, fuzzy-threshold region growt
 ## Crop by Margins (Image & Mask)
 
 <p align="center">
-  <img src="assets/crop_by_margins.png" alt="Crop by Margins node" width="480">
+  <img src="assets/crop_by_margins.png" alt="Crop by Margins node" width="720">
 </p>
 
 Precisely removes margins from an **image** or a **mask**, with optional snapping to a multiple (useful for model constraints).
