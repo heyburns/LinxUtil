@@ -144,7 +144,7 @@ Precisely removes margins from an **image** or a **mask**, with optional snappin
 ## Stitch by Mask (Feathered)
 
 <p align="center">
-  <img src="assets/stitch_by_mask.png" alt="Stitch by Mask (Feathered) node" width="480">
+  <img src="assets/stitch_by_mask_feathered" alt="Stitch by Mask (Feathered) node" width="480">
 </p>
 
 Composite `image_b` over `image_a` using a real `mask`, with optional invert, opacity, and feathering. Can process at a reduced size for speed, then apply at full res.
