@@ -1,5 +1,7 @@
-# LinxUtil package init (subpackage layout)
-# Imports modules under ./linxutil and merges their NODE_*_MAPPINGS.
+# LinxUtil package init (subpackage layout, tolerant relative imports)
+# Loads modules under ./linxutil and merges their NODE_*_MAPPINGS.
+
+import importlib
 
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
@@ -10,34 +12,44 @@ def _merge(mod):
     if hasattr(mod, "NODE_DISPLAY_NAME_MAPPINGS"):
         NODE_DISPLAY_NAME_MAPPINGS.update(mod.NODE_DISPLAY_NAME_MAPPINGS)
 
-# Core modules
-from .linxutil import multipurpose_configuration as _m_mpc
-_merge(_m_mpc)
+def _try_import(modname: str):
+    # Force a RELATIVE import (prefix with ".") so we import from LinxUtil.*
+    rel = modname if modname.startswith(".") else f".{modname}"
+    try:
+        mod = importlib.import_module(rel, package=__name__)
+        _merge(mod)
+        print(f"[LinxUtil] Loaded: {modname}")
+    except Exception as e:
+        print(f"[LinxUtil] Skipped {modname}: {e}")
 
-from .linxutil import auto_color_match as _m_acm
-_merge(_m_acm)
+modules = [
+    "linxutil.multipurpose_configuration",
+    "linxutil.auto_color_match",
+    "linxutil.remove_extension",
+    "linxutil.autocrop",
+    "linxutil.comfy_ui_levels_match_custom_node",
+    "linxutil.crop_by_margins",
+    "linxutil.filename_append_suffix",
+    "linxutil.stitch_by_mask",
+    "linxutil.image_filename_switch",
+    # "linxutil.preset_resolution_and_blend",  # uncomment only if the file exists
+]
 
-from .linxutil import remove_extension as _m_strip
-_merge(_m_strip)
+for m in modules:
+    _try_import(m)
 
-from .linxutil import autocrop as _m_autocrop
-_merge(_m_autocrop)
+# --- Backward-compatibility aliases (optional; keeps old workflows working) ---
+def _alias(old_key, new_key):
+    cls = NODE_CLASS_MAPPINGS.get(new_key)
+    if cls:
+        NODE_CLASS_MAPPINGS[old_key] = cls
+        print(f"[LinxUtil] Alias added: {old_key} -> {new_key}")
 
-from .linxutil import comfy_ui_levels_match_custom_node as _m_levels
-_merge(_m_levels)
+# Examples (uncomment/edit if your old graphs reference these type names):
+# _alias("StripExtensionNode", "Strip Filename Extension")
+# _alias("CropImageByMargins", "Crop Image by Margins")
+# _alias("ImageFilenameSwitch2", "Image & Filename Switch (2-way)")
+# _alias("Multipurpose Configuration", "Multipurpose Configuration")
 
-from .linxutil import crop_by_margins as _m_cropm
-_merge(_m_cropm)
-
-from .linxutil import filename_append_suffix as _m_suffix
-_merge(_m_suffix)
-
-from .linxutil import stitch_by_mask as _m_stitch
-_merge(_m_stitch)
-
-# NEW: Image & Filename Switch (2-way)
-from .linxutil import image_filename_switch as _m_ifswitch
-_merge(_m_ifswitch)
-
-print(f"[LinxUtil] Loaded {len(NODE_CLASS_MAPPINGS)} node classes: "
+print(f"[LinxUtil] Registered {len(NODE_CLASS_MAPPINGS)} node classes: "
       + ", ".join(NODE_CLASS_MAPPINGS.keys()))

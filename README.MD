@@ -220,28 +220,42 @@ Removes the final extension from a filename string (`photo.png` → `photo`). Si
 
 ---
 
-## Multipurpose Configuration
+## Multipurpose Configuration (Resolution + Blend + Paths + Prompt)
 
 <p align="center">
-  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="380">
+  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="780">
 </p>
 
-Small “source/utility” node that owns a few configuration values you can reuse elsewhere (handy in compact graphs). Sets input and output dirs, resolution megapixels (or other float value), and a text string that can be used for prompting, masking, etc.
+One compact node that centralizes **resolution**, **global paths**, a reusable **blend factor**, **megapixels**, and a free-text **prompt**. Use it as a single source of truth and fan its outputs to multiple nodes.
 
 **Category:** `Utility/Configuration` • **Display name:** **Multipurpose Configuration**
+
+**Outputs (in order)**
+- `width` (INT), `height` (INT) — resolved from preset/custom, with optional snapping  
+- `megapixels` (FLOAT) — pass to resizers that accept MP  
+- `blend_factor` (FLOAT) — 0–1 mix amount (use as opacity/strength/“B weight”)  
+- `input_dir` (STRING), `output_dir` (STRING) — normalized paths (`~` and slashes cleaned)  
+- `prompt` (STRING) — multiline text
 
 **Parameters**
 
 | Name | Type | Default | Notes |
 |---|---|---:|---|
-| `input_dir` | STRING | `""` | Input directory. |
-| `output_dir` | STRING | `""` | Output directory. |
-| `megapixels` | FLOAT | `2.0` | Emits a `FLOAT` (e.g., for resizers that accept MP as float). |
-| `prompt` | STRING | `""` | Multiline free-text for prompts and other strings. |
+| `preset` | enum | `custom` | Common sizes (HD/FHD/UHD, 2K DCI, 4:3, 1:1, SD). Choose **custom** to use the fields below. |
+| `megapixels` | FLOAT | `2.0` | Emits untouched; useful for MP-based resize nodes. |
+| `custom_width` | INT | `1920` | Used when `preset=custom`. |
+| `custom_height` | INT | `1080` | Used when `preset=custom`. |
+| `swap_orientation` | BOOL | `False` | Swaps W↔H after preset/custom is resolved (quick portrait/landscape flip). |
+| `divisible_by` | INT | `2` | Rounds **both** W/H to the nearest multiple (e.g., 8/16/64). Set `1` to disable. |
+| `blend_factor` | FLOAT | `1.0` | Reusable 0–1 control; drive opacity/strength in other nodes. |
+| `input_dir` | STRING | `""` | Global input directory. Relative paths resolve from ComfyUI’s working dir; `~` expands to user home. |
+| `output_dir` | STRING | `""` | Global output directory (same normalization rules). |
+| `prompt` | STRING (multiline) | `""` | Free-form text; handy for mask prompts or notes. |
 
-**Outputs**  
-- `megapixels` (FLOAT)  
-- `prompt` (STRING)
+**Tips**
+- Use `divisible_by=8` or `16` for tilers/codecs that need aligned sizes; use `1` to keep exact dimensions.  
+- Plug `blend_factor` into any node with a **strength/opacity** input to keep a consistent mix across your graph.  
+- Because this node emits **width/height/paths/prompt** together, it’s easy to keep multiple branches in sync.
 
 ---
 
