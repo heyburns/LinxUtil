@@ -62,7 +62,7 @@ Fast, reference-driven color normalization. Apply auto white balance, then (opti
 
 | Name | Type | Default | Notes |
 |---|---|---:|---|
-| `method` | enum(`wb_grayworld`,`wb_highlight`,`reinhard_lab`,`lab_l_only`,`wb_highlight+reinhard`) | `wb_highlight+reinhard` | Pipeline choice; the default does highlight WB then Lab match. |
+| `method` | enum(`wb_grayworld`,`wb_highlight`,`reinhard_lab`,<br>`lab_l_only`,`wb_highlight+reinhard`) | `wb_highlight+reinhard` | Pipeline choice; the default does highlight WB then Lab match. |
 | `percentile` | FLOAT | `95.0` | For `wb_highlight`; sets “white-patch” luminance threshold. |
 | `strength` | FLOAT | `1.0` | Blend 0–1 of correction into original. |
 | `clip_gamut` | BOOL | `True` | Clamp final result to `[0,1]` to avoid overs. |
