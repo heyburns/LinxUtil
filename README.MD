@@ -234,12 +234,14 @@ Small “source/utility” node that owns a few configuration values you can reu
 
 | Name | Type | Default | Notes |
 |---|---|---:|---|
+| `input_dir` | STRING | `""` | Input directory. |
+| `output_dir` | STRING | `""` | Output directory. |
 | `megapixels` | FLOAT | `2.0` | Emits a `FLOAT` (e.g., for resizers that accept MP as float). |
-| `mask_prompt` | STRING | `""` | Multiline free-text. |
+| `prompt` | STRING | `""` | Multiline free-text for prompts and other strings. |
 
 **Outputs**  
 - `megapixels` (FLOAT)  
-- `mask_prompt` (STRING)
+- `prompt` (STRING)
 
 ---
 
