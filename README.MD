@@ -223,7 +223,7 @@ Removes the final extension from a filename string (`photo.png` → `photo`). Si
 ## Multipurpose Configuration (Resolution + Blend + Paths + Prompt)
 
 <p align="center">
-  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="780">
+  <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="380">
 </p>
 
 One compact node that centralizes **resolution**, **global paths**, a reusable **blend factor**, **megapixels**, and a free-text **prompt**. Use it as a single source of truth and fan its outputs to multiple nodes.
