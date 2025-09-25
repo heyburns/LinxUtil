@@ -248,7 +248,7 @@ Small “source/utility” node that owns a few configuration values you can reu
 ## Image & Filename Switch (2-way)
 
 <p align="center">
-  <img src="assets/image_filename_switch.png" alt="Image & Filename Switch (2-way) node" width="780">
+  <img src="assets/image_filename_switch.png" alt="Image & Filename Switch (2-way) node" width="380">
 </p>
 
 Routes **one** of two (image, filename) pairs based on an index (0 or 1). Useful for toggling between two render paths, A/B variants, or failover branches.
