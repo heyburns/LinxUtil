@@ -226,7 +226,7 @@ Removes the final extension from a filename string (`photo.png` → `photo`). Si
   <img src="assets/multipurpose_configuration.png" alt="Multipurpose Configuration node" width="380">
 </p>
 
-Small “source/utility” node that owns a couple of configuration values you can reuse elsewhere (handy in compact graphs).
+Small “source/utility” node that owns a few configuration values you can reuse elsewhere (handy in compact graphs). Sets input and output dirs, resolution megapixels (or other float value), and a text string that can be used for prompting, masking, etc.
 
 **Category:** `Utility/Configuration` • **Display name:** **Multipurpose Configuration**
 
