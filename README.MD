@@ -245,5 +245,29 @@ Small “source/utility” node that owns a few configuration values you can reu
 
 ---
 
+## Image & Filename Switch (2-way)
+
+<p align="center">
+  <img src="assets/image_filename_switch.png" alt="Image & Filename Switch (2-way) node" width="780">
+</p>
+
+Routes **one** of two (image, filename) pairs based on an index (0 or 1). Useful for toggling between two render paths, A/B variants, or failover branches.
+
+**Category:** `Custom` • **Display name:** **Image & Filename Switch (2-way)**
+
+**Inputs**
+- `selected_index` (INT) — `0` or `1` (which pair to output)
+- `image1` (IMAGE), `filename1` (STRING)
+- `image2` (IMAGE), `filename2` (STRING)
+
+**Outputs**
+- `IMAGE` — the selected image  
+- `STRING` — the selected filename
+
+**Tips**
+- Drive `selected_index` with a constant (manual toggle) or a logic node.
+- For more than 2 branches, chain multiple switches. :contentReference[oaicite:0]{index=0}
+
+
 ## 📄 License
 MIT — see `LICENSE`.
