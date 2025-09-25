@@ -1,6 +1,5 @@
 # LinxUtil package init (subpackage layout)
-# This imports the modules that actually exist under ./linxutil
-# and merges their NODE_*_MAPPINGS if present.
+# Imports modules under ./linxutil and merges their NODE_*_MAPPINGS.
 
 NODE_CLASS_MAPPINGS = {}
 NODE_DISPLAY_NAME_MAPPINGS = {}
@@ -11,7 +10,7 @@ def _merge(mod):
     if hasattr(mod, "NODE_DISPLAY_NAME_MAPPINGS"):
         NODE_DISPLAY_NAME_MAPPINGS.update(mod.NODE_DISPLAY_NAME_MAPPINGS)
 
-# Import from the linxutil subpackage using the filenames you actually have
+# Core modules
 from .linxutil import multipurpose_configuration as _m_mpc
 _merge(_m_mpc)
 
@@ -35,6 +34,10 @@ _merge(_m_suffix)
 
 from .linxutil import stitch_by_mask as _m_stitch
 _merge(_m_stitch)
+
+# NEW: Image & Filename Switch (2-way)
+from .linxutil import image_filename_switch as _m_ifswitch
+_merge(_m_ifswitch)
 
 print(f"[LinxUtil] Loaded {len(NODE_CLASS_MAPPINGS)} node classes: "
       + ", ".join(NODE_CLASS_MAPPINGS.keys()))
